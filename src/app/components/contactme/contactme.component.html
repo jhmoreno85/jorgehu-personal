@@ -1,0 +1,52 @@
+<div id="tf-contact" class="text-center">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+
+        <div class="section-title center">
+          <h2>Contact <strong>me</strong></h2>
+          <div class="line">
+            <hr>
+          </div>
+          <div class="clearfix"></div>
+          <small><em>Please Note: Response times may vary due to work. I apologize if I don't respond immediately and it's not my intention to ignore anyone.</em></small>
+        </div>
+
+        <form [ngFormModel]="form" (ngSubmit)="save()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputName">Name</label>
+                <input [(ngModel)]="contact.name" #name="ngForm" ngControl="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter your name">
+                <div *ngIf="name.touched && !name.valid" class="alert alert-danger">
+                  Name is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputEmail">Email</label>
+                <input [(ngModel)]="contact.email" #email="ngForm" ngControl="email" type="text" class="form-control" id="exampleInputEmail" placeholder="Enter your e-mail">
+                <div *ngIf="email.touched && !email.valid" class="alert alert-danger">
+                  Please enter an E-mail valid.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextInputMessage">Message</label>
+            <textarea [(ngModel)]="contact.message" #message="ngForm" ngControl="message" class="form-control" rows="4" id="exampleTextInputMessage"></textarea>
+            <div *ngIf="message.touched && !message.valid" class="alert alert-danger">
+              Message is required.
+            </div>
+          </div>
+
+          <button type="submit" [disabled]="!form.valid" class="btn tf-btn btn-default">Submit</button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
